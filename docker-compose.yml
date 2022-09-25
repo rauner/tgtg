@@ -5,10 +5,10 @@ services:
     #image: tgtg-scanner:latest           ## locally build image
     environment: 
       - TZ=Europe/Berlin                              ## Set timezone for pickupdate, otherwise will be utc
-      - DEBUG=false                                   ## true for debug log messages
-      - TGTG_USERNAME=                                ## TGTG Username / Login EMail
+      - DEBUG=true                                   ## true for debug log messages
+      - TGTG_USERNAME=                               ## TGTG Username / Login EMail
       - SLEEP_TIME=60                                 ## Time to wait till next scan in seconds - default 60 seconds
-      #- SCHEDULE_CRON=                               ## (optional) Scheduler in cron schedule expression 
+      - SCHEDULE_CRON=* 7-23 * * 1-7                                ## (optional) Scheduler in cron schedule expression 
                                                       ## Example of cron schedule expression:
                                                       ## - SCHEDULE_CRON=* 12-14 * * 1-5     
                                                       ## => allowed to run at hours between 12:00 and 14:59 on monday to friday
@@ -35,9 +35,9 @@ services:
       - PUSH_SAFER_KEY=
       - PUSH_SAFER_DEVICE_ID=
 
-      - TELEGRAM=false                                ## true = enable notifications via Telegram
-      - TELEGRAM_TOKEN=                               ## Telegram Bot token - see @botfather
-      - TELEGRAM_CHAT_IDS=                            ## Telegram Chat id, multiple ids separated by comma
+      - TELEGRAM=true                                ## true = enable notifications via Telegram
+      - TELEGRAM_TOKEN=                              ## Telegram Bot token - see @botfather
+      - TELEGRAM_CHAT_IDS=                           ## Telegram Chat id, multiple ids separated by comma
       - TELEGRAM_TIMEOUT=60                           ## Timeout for Telegram API requests
       #- TELEGRAM_BODY=                               ## Optional message body as markdown, variables as described below
                                                       ## Example: 
