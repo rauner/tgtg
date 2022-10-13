@@ -12,6 +12,8 @@ from models.errors import TgtgAPIError, Error, ConfigurationError, TGTGConfigura
 from notifiers import Notifiers
 from tgtg import TgtgClient
 
+
+
 VERSION_URL = 'https://api.github.com/repos/Der-Henning/tgtg/releases/latest'
 VERSION = "1.12.1"
 
@@ -28,6 +30,9 @@ logging.basicConfig(
         logging.StreamHandler()
     ])
 log = logging.getLogger('tgtg')
+
+
+
 
 
 class Scanner():
