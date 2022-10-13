@@ -1,3 +1,4 @@
+import subprocess
 import logging
 from time import sleep
 import random
@@ -75,6 +76,13 @@ class Telegram(Notifier):
                         timeout=self.timeout,
                         disable_web_page_preview=True)
                     self.retries = 0
+                    
+                    subprocess.run(
+                    	["notify-send", "-u", "normal", "-t", "3000",
+     			"TGTG", message],
+    			check=True)
+
+                    
                 except BadRequest as err:
                     log.error('Telegram Error: %s', err)
                 except (NetworkError, TimedOut) as err:
